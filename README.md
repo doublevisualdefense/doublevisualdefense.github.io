@@ -1,2 +1,2 @@
-# HQ-Edit
-[https://thefllood.github.io/HQEdit_web/](https://thefllood.github.io/HQEdit_web/)
+# Double Visual Defense
+[https://doublevisualdefense.github.io/](https://doublevisualdefense.github.io/)
