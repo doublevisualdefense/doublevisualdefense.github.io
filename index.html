@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Double Visual Defense: Adversarial Pre-training and Instruction Tuning for Improving Vision-Language Model Robustness</title>
+
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./resources/icon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Double Visual Defense: Adversarial Pre-training and Instruction Tuning for Improving Vision-Language Model Robustness</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <span><a href="https://zw615.github.io/">Zeyu Wang</a></span><sup>1,2</sup>,</span>
+            </span>
+            <span class="author-block">
+              <span><a href="https://cihangxie.github.io/">Cihang Xie</a></span><sup>1</sup></span>
+            </span>
+            <span class="author-block">
+              <span><a href="https://scholar.google.com/citations?user=YdiZoJgAAAAJ&hl=en">Brian Bartoldson</a></span><sup>2</sup></span>
+            </span>
+            <span class="author-block">
+              <span><a href="https://scholar.google.com/citations?user=SQpJmOgAAAAJ&hl=en">Bhavya Kailkhura</a></span><sup>2</sup></span>
+            </span>
+          </div>
+          <br/>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>UC Santa Cruz, </span>
+            <span class="author-block"><sup>2</sup>Lawrence Livermore National Laboratory</span>
+            
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2501.09446"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fa-solidassasas fa-face-smiling-hands"></i>
+                    <img src="./resources/ar.svg" alt="img" style="width: 100%; height: 100%" /> 
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="TBD"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (Coming Soon)</span>
+                  </a>
+              </span>
+
+              <!-- Model Link. -->
+              <span class="link-block">
+                <a href="TBD"
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fa-solidasasa fa-face-smiling-hands"></i>
+                 <img src="./resources/gr.svg" alt="img" style="width: 100%; height: 100%" />
+                </span>
+                 <span>Delta-CLIP Model (Coming Soon)</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href="TBD"
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fa-solidasasa fa-face-smiling-hands"></i>
+                 <img src="./resources/gr.svg" alt="img" style="width: 100%; height: 100%" />
+                </span>
+                 <span>Delta<sup>2</sup>-LLaVA Model (Coming Soon)</span>
+                </a>
+              </span>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="hero teaser">
+  <div class="container">
+    <div class="hero-body", style="text-align: center;">
+      <img src="./resources/radar_plot_final.png" width="80%" alt="alt text"
+                        style="width: 50%; object-fit: cover; max-width:50%;"></a>
+      <h2 class="subtitle has-text-centered">
+        Comparison of clean performance and robustness of our Delta-CLIP model with previous robust and non-robust CLIP models.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            This paper investigates the robustness of vision-language models against adversarial visual perturbations and introduces a novel ``double visual defense" to enhance this robustness.
+            Unlike previous approaches that resort to lightweight adversarial fine-tuning of a pre-trained CLIP model, we perform large-scale adversarial vision-language pre-training from scratch using web-scale data.
+            We then strengthen the defense by incorporating adversarial visual instruction tuning. The resulting models from each stage, Delta-CLIP and Delta<sup>2</sup>-LLaVA, show substantially enhanced zero-shot robustness and set a new state-of-the-art in adversarial defense for vision-language models.
+            For example, the adversarial robustness of Delta-CLIP surpasses that of the previous best models on ImageNet-1k by ~20%.
+            Similarly, compared to prior art, Delta<sup>2</sup>-LLaVA brings a \app30\% robustness improvement to image captioning task and a \app20\% robustness improvement to visual question answering task.
+            Furthermore, our models exhibit stronger zero-shot recognition capability, fewer hallucinations, and superior reasoning performance compared to baselines.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+    <!--/ Abstract. -->
+
+    <section class="section">
+      <div class="container">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Double Visual Defense Pipeline</h2>
+            <div class="content has-text-justified">
+              <center><img class="center" src="./resources/dvd_framework.png" width="100%"></center>
+              <p>
+                Our Double Visual Defense framework, which involves an adversarial contrastive pre-training stage and an adversarial visual instruction tuning stage.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <!-- Abstract. -->
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+              <h2 class="title is-3">Less Hallucination</h2>
+              <div class="content has-text-justified">
+                <center><img class="center" src="./resources/less_hellucination.png" width="50%"></center>
+                <p>
+                  Delta<sup>2</sup>-LLaVA shows less degree of hallucination compared to LLaVA that are based on previous robust CLIP models.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="container">
+            <!-- Abstract. -->
+            <div class="columns is-centered has-text-centered">
+              <div class="column is-four-fifths">
+                <h2 class="title is-3">Emergence of Typographic Attacks</h2>
+                <div class="content has-text-justified">
+                  <center><img class="center" src="./resources/emergence_of_type_attack.png" width="60%"></center>
+                  <p>
+                    We observe an intriguing phenomenon that typographical attack naturally emerge from naive l-inf adversarial attacks when applied to our adversarially trained Delta<sup>2</sup>-LLaVA models.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+            <section class="section">
+            <div class="container">
+              <!-- Abstract. -->
+              <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                  <h2 class="title is-3">Acknowledgement</h2>
+                  <div class="content has-text-justified">
+                    We would like to thank TPU Research Cloud (TRC) program, Google Cloud Research Credits program, and AWS Cloud Credit for Research program for partially supporting our computing needs.
+                    Cihang Xie is partially support by a gift from Open Philanthropy.
+                    This work is partially based upon the work supported by the National Center for Transportation Cybersecurity and Resiliency (TraCR) (a U.S. Department of Transportation National University Transportation Center) headquartered at Clemson University, Clemson, South Carolina, USA.
+                    Any opinions, findings, conclusions, and recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of TraCR, and the U.S. Government assumes no liability for the contents or use thereof.
+                    <br />
+                    <br />
+                    Prepared by LLNL under Contract DE-AC52-07NA27344 and supported by the LLNL-LDRD Program under Project No. 24-ERD-010 and 24-ERD-058 (LLNL-CONF-2001211).
+                    This manuscript has been authored by Lawrence Livermore National Security, LLC under Contract No. DE-AC52-07NA27344 with the U.S. Department of Energy.
+                    The United States Government retains, and the publisher, by accepting the article for publication, acknowledges that the United States Government retains a non-exclusive, paid-up, irrevocable, world-wide license to publish or reproduce the published form of this manuscript, or allow others to do so, for United States Government purposes.
+                  </div>
+                </div>
+              </div>
+            </section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+    @article{wang2025double,
+      title   = {Double Visual Defense: Adversarial Pre-training and Instruction Tuning for Improving Vision-Language Model Robustness},
+      author  = {Wang, Zeyu and Xie, Cihang and Bartoldson, Brian and Kailkhura, Bhavya},
+      journal = {arXiv preprint arXiv:2501.09446},
+      year    = {2025}
+    }
+    </code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Based on the following <a href="http://nerfies.github.io">template</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
